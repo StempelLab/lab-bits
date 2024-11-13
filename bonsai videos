@@ -1,0 +1,64 @@
+
+# Bonsai
+
+## **Dropped frames:**
+
+dropped frames can be caused by two major issues:
+
+- camera not acquiring or sending a frame (bad pfs settings or USB connection)
+    - **dropped frames csv:** we can make the camera report the timestamps of the following:
+        
+        GrabResultSucceeded: a frame was grabbed - Boolean
+        
+        GrabResultSkippedimageCount: a counter of dropped frames 
+        
+        if GrabResultSucceeded is False and GrabResultSkippedimageCount is rising we are losing frames and can see when this occured.
+        
+
+**FFMPEG**
+
+[https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=25](https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=21)
+
+### 
+
+- **PC not writing the frame to disk (bad FFMPEG settings)**
+to monitor writing to disk just look in the bonsai console. if writing speed drops below 1.0 for long → you are losing frames, or your RAM is filling up and not keeping up with writing to disk (use an SSD, and have enough storage space
+use these settings:
+    
+    [FFMPEG settings](https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=21)
+    
+- 
+-
+**PytlonCapture:** 
+
+Grab strategy: OneByOne
+
+ParameterFile: PATH\TO\YOUR.pfs file
+
+for example: D:\bonsai\acA2040-90umNIR_25080765.pfs
+
+SerialNumber: choose from a dropdown list
+
+**VideoWriter:**
+
+Filename: automatically genereated
+
+framerate: 50
+
+OutputArguments: 
+
+-c:v h264_nvenc -b:v 20M -maxrate:v 20M -bufsize:v 5M -profile:v main -rc 23  -preset medium -an -gpu 0
+
+the key arguments to tune: 
+
+-c:v h264_nvenc -b:v 20M : h264 will use CPU, h264_nvenc will use GPU.
+
+-b:v 20M: a buffer for the GPU, lower than 10-12 will create frame drops.
+
+-preset: faster/fast/medium/slow/slower   - the slower the better the quality and the lower the file size, but more load on PC.
+
+-rc: ratio constant- this is a quality constant  - the lower the better, with same caveats as above
+
+-an: no sound track (reduces stream size)
+
+-gpu: specify the index of the GPU that will do the encoding. e,g, -gpu 0
