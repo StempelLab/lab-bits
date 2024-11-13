@@ -1,0 +1,46 @@
+# Video processing
+
+use handbrake to post process behavioral videos:
+
+[Handbrake settings](https://www.notion.so/Handbrake-settings-13d9ce9c5eea80449488e09b71fa0eaf?pvs=21)
+
+# Bonsai
+
+## **Dropped frames:**
+
+dropped frames can be caused by two major issues:
+
+- camera not acquiring or sending a frame (bad pfs settings or USB connection)
+    - **dropped frames csv:** we can make the camera report the timestamps of the following:
+        
+        GrabResultSucceeded: a frame was grabbed - Boolean
+        
+        GrabResultSkippedimageCount: a counter of dropped frames 
+        
+        if GrabResultSucceeded is False and GrabResultSkippedimageCount is rising we are losing frames and can see when this occured.
+        
+
+**FFMPEG**
+
+[https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=25](https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=21)
+
+### 
+
+- **PC not writing the frame to disk (bad FFMPEG settings)**
+to monitor writing to disk just look in the bonsai console. if writing speed drops below 1.0 for long → you are losing frames, or your RAM is filling up and not keeping up with writing to disk (use an SSD, and have enough storage space
+use these settings:
+    
+    [FFMPEG settings](https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=21)
+    
+- 
+- 
+
+SpikeGLX
+
+MATLAB
+
+bombcell
+
+PYTHON
+
+Tom’s code
