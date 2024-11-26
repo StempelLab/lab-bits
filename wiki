@@ -1,5 +1,7 @@
 
-
+# cameras not detected
+- sometimes the USB controllers in the PC get f**ed up.
+    - disconnect the USB cable and connect to another port. repeat until it's detected
 
 # Video processing
 
@@ -35,9 +37,7 @@ use these settings:
     
     [FFMPEG settings](https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=21)
 
-## **cameras not detected:**
-- sometimes the USB controllers in the PC get f**ed up.
-    - disconnect the USB cable and connect to another port. repeat until it's detected
+
     
 - 
 - 
