@@ -1,6 +1,10 @@
 
 # Bonsai
 
+## **cameras not detected:**
+- sometimes the USB controllers in the PC get f**ed up.
+    - disconnect the USB cable and connect to another port. repeat until it's detected
+
 ## **Dropped frames:**
 
 dropped frames can be caused by two major issues:
