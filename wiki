@@ -1,3 +1,6 @@
+
+
+
 # Video processing
 
 use handbrake to post process behavioral videos:
@@ -31,6 +34,10 @@ to monitor writing to disk just look in the bonsai console. if writing speed dro
 use these settings:
     
     [FFMPEG settings](https://www.notion.so/FFMPEG-settings-13d9ce9c5eea8006a471cf16629d8573?pvs=21)
+
+## **cameras not detected:**
+- sometimes the USB controllers in the PC get f**ed up.
+    - disconnect the USB cable and connect to another port. repeat until it's detected
     
 - 
 - 
